@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Para JP 💚</title>
+<title>Para JP💚</title>
 
 <style>
 
@@ -14,18 +14,58 @@ font-family:Arial;
 }
 
 body{
-background:linear-gradient(#020202,#031d03,#000);
+background:radial-gradient(circle,#021202,#000);
 color:white;
 overflow-x:hidden;
+text-align:center;
+}
+
+/* corte de espada */
+
+#slash{
+
+position:fixed;
+top:50%;
+left:-120%;
+width:200%;
+height:6px;
+
+background:linear-gradient(90deg, transparent,#00ff88,#00ff88,transparent);
+
+transform:rotate(-20deg);
+
+box-shadow:0 0 20px #00ff88,0 0 40px #00ff88;
+
+animation:slashAnim 1.5s ease-out forwards;
+
+z-index:10;
+
+}
+
+@keyframes slashAnim{
+
+0%{
+left:-120%;
+opacity:1;
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+left:120%;
+opacity:0;
+}
+
 }
 
 /* estrelas */
 
 .star{
 position:absolute;
-background:white;
-width:2px;
-height:2px;
+width:18px;
+opacity:0.6;
 animation:blink 2s infinite alternate;
 }
 
@@ -37,21 +77,34 @@ to{opacity:1}
 /* seção */
 
 section{
-height:100vh;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
-padding:20px;
+padding:40px;
 }
 
 /* título */
 
 h1{
-font-size:60px;
+font-size:65px;
 color:#4cff4c;
-text-shadow:0 0 20px #1aff1a;
+text-shadow:0 0 15px #00ff88,0 0 30px #00ff88;
+}
+
+/* imagem zoro */
+
+.zoro{
+width:280px;
+margin-top:25px;
+filter:drop-shadow(0 0 30px #00ff88);
+animation:flutuar 5s ease-in-out infinite;
+}
+
+@keyframes flutuar{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
 }
 
 /* texto */
@@ -63,47 +116,80 @@ width:60%;
 line-height:1.6;
 }
 
-/* botão */
-
-button{
-margin-top:30px;
-padding:15px 30px;
-font-size:18px;
-border:none;
-border-radius:12px;
-background:#2ecc71;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.1);
-}
-
 /* espadas */
 
 .swords{
-font-size:70px;
 margin-top:40px;
-animation:float 4s ease-in-out infinite;
+display:flex;
+gap:40px;
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
+.swords img{
+width:130px;
+filter:drop-shadow(0 0 15px #00ff88);
+animation:espadaFloat 4s ease-in-out infinite;
+}
+
+.swords img:nth-child(2){
+animation-delay:1s;
+}
+
+.swords img:nth-child(3){
+animation-delay:2s;
+}
+
+@keyframes espadaFloat{
+0%,100%{transform:translateY(0) rotate(-5deg)}
+50%{transform:translateY(-25px) rotate(5deg)}
+}
+
+/* botões */
+
+.botoes{
+margin-top:40px;
+}
+
+.botoes button{
+
+padding:15px 25px;
+margin:10px;
+font-size:18px;
+background:#2ecc71;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+color:white;
+
+}
+
+.botoes button:hover{
+transform:scale(1.1);
+background:#27ae60;
+}
+
+/* mensagem */
+
+#mensagem{
+margin-top:30px;
+font-size:22px;
+color:#7CFF7C;
+min-height:40px;
 }
 
 /* corações */
 
 .heart{
 position:fixed;
-bottom:-10px;
-color:#ff4d6d;
-animation:up 6s linear infinite;
+bottom:-40px;
+animation:subir 6s linear infinite;
 }
 
-@keyframes up{
+.heart img{
+width:30px;
+}
+
+@keyframes subir{
 0%{
 transform:translateY(0);
 opacity:1;
@@ -114,65 +200,44 @@ opacity:0;
 }
 }
 
-/* carta final */
-
-.final{
-background:#021402;
-}
-
-.final h2{
-font-size:40px;
-color:#4cff4c;
-}
-
 </style>
 </head>
 
 <body>
 
+<div id="slash"></div>
+
 <section>
 
-<h1>Para JP 🗡️💚</h1>
+<h1>Para JP 💚</h1>
+
+<img class="zoro" src="zoro.png">
 
 <p>
 Se o Zoro enfrenta qualquer batalha por quem ele ama,
 então eu também enfrentaria qualquer coisa por você.
 Entre bilhões de pessoas no mundo,
-você ainda é uma das mais especiais pra mim.
+você ainda é uma das pessoas mais especiais pra mim.
 </p>
 
 <div class="swords">
-🗡️ 🗡️ 🗡️
+
+<img src="sword1.png">
+<img src="sword2.png">
+<img src="sword3.png">
+
 </div>
 
-<button onclick="surpresa()">Clique aqui</button>
+<div class="botoes">
 
-</section>
+<button onclick="mostrarMensagem('msg1')">Tem algo que eu quero te dizer..</button>
+<button onclick="mostrarMensagem('msg2')">Você é perfeito..</button>
+<button onclick="mostrarMensagem('msg3')">Mais que importante..</button>
+<button onclick="mostrarMensagem('msg4')">Sem você eu nunca mais seria feliz como sou hoje, você é tudo pra mim.</button>
 
-<section>
+</div>
 
-<h1>Nossa amizade</h1>
-
-<p>
-Cada momento com você é especial.
-Conversas aleatórias, risadas,
-momentos simples que acabam virando memórias enormes.
-</p>
-
-</section>
-
-<section class="final">
-
-<h2>Uma última mensagem</h2>
-
-<p>
-JP,
-talvez eu não fale isso o suficiente,
-mas você é uma pessoa muito importante pra mim.
-Obrigado por existir,
-por estar presente,
-e por tornar meus dias muito melhores.
-</p>
+<p id="mensagem"></p>
 
 </section>
 
@@ -182,7 +247,9 @@ e por tornar meus dias muito melhores.
 
 for(let i=0;i<120;i++){
 
-let star=document.createElement("div");
+let star=document.createElement("img");
+
+star.src="star.png";
 
 star.classList.add("star");
 
@@ -201,11 +268,9 @@ let h=document.createElement("div");
 
 h.classList.add("heart");
 
-h.innerHTML="❤";
+h.innerHTML='<img src="heart.png">';
 
 h.style.left=Math.random()*100+"vw";
-
-h.style.fontSize=(20+Math.random()*25)+"px";
 
 document.body.appendChild(h);
 
@@ -215,13 +280,31 @@ h.remove();
 
 }
 
-setInterval(heart,400);
+setInterval(heart,500);
 
-/* mensagem */
+/* mensagens */
 
-function surpresa(){
+function mostrarMensagem(tipo){
 
-alert("JP, você é tão incrível quanto o Zoro. 💚");
+let texto="";
+
+if(tipo=="msg1"){
+texto="Jp, você é uma das pessoas mais importantes da minha vida.";
+}
+
+if(tipo=="msg2"){
+texto="Cada conversa com você vira uma memória especial que eu guardo com carinho.";
+}
+
+if(tipo=="msg3"){
+texto="Como o zoro protege todos a quem ama, sempre irei te proteger como ele protege seus amigos, de forma leal e amorosa..";
+}
+
+if(tipo=="msg4"){
+texto="Obrigado por existir e tornar meus piores dias em dias bons 💚";
+}
+
+document.getElementById("mensagem").innerText = texto;
 
 }
 
